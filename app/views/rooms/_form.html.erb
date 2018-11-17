@@ -34,8 +34,8 @@
   </div>
 </div>
 
-<% if @room.errors.full_messages.any? %>
-  <% @room.errors.full_messages.each do |error_message| %>
-    <%= error_message if @room.errors.full_messages.first == error_message %> <br />
+<% if @room.errors.any? %>
+  <% @room.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
   <% end %>
 <% end %>

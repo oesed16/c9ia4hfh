@@ -15,9 +15,12 @@
 class Room < ActiveRecord::Base
 
     validates :title, presence: true
-    validates :description, presence: true, length: { maximum: 400, message: "La descripción supera el número de caracteres permitidos" }  
-    validates :beds, presence: true, numericality: { only_integer: true, message: "Beds debe ser un número entero" } 
-    validates :guests, presence: true, numericality: { only_integer: true, message: "Guests debe ser un número entero" } 
+    validates :description, presence: true
+    validates :description, length: { maximum: 400 }, allow_blank: true
+    validates :beds, presence: true
+    validates :beds, numericality: { only_integer: true, message: "debe ser un número entero" } 
+    validates :guests, presence: true
+    validates :guests, numericality: { only_integer: true, message: "debe ser un número entero" } 
     validates :image_url, presence: true
-    
+
 end
