@@ -23,16 +23,16 @@ class RoomsController < ApplicationController
   def update
     @room = Room.find(params[:id])
     if @room.update(room_params)
-      redirect_to rooms_path  
+      redirect_to rooms_path, notice: 'La habitación ha sido editada con éxito'  
     else
       render :edit
     end
   end
 
   def destroy
-    room = Room.find(params[:id])
-    room.destroy
-    redirect_to rooms_path
+    @room = Room.find(params[:id]) 
+    @room.destroy
+    redirect_to rooms_path, notice: 'La habitación ha sido eliminada con éxito'
   end
   
   protected
